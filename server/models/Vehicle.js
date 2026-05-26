@@ -6,12 +6,23 @@ const vehicleSchema = new mongoose.Schema(
     vehicleType: { type: String, required: true },
     driverName: { type: String, required: true },
     driverPhone: { type: String },
+
     status: {
       type: String,
       enum: ["Available", "On Trip", "Maintenance"],
       default: "Available"
     },
-    currentLocation: { type: String, default: "Factory" }
+
+    currentLocation: { 
+      type: String, 
+      default: "Factory" 
+    },
+
+    user: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "User"
+    }
+
   },
   { timestamps: true }
 );

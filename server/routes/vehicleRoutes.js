@@ -5,10 +5,20 @@ const protect = require("../middleware/authMiddleware");
 const router = express.Router();
 router.use(protect);
 
-router.get("/", async (req, res) => res.json(await Vehicle.find().sort({ createdAt: -1 })));
+router.get("/", async (req, res) => {
+  const vehicles = await Vehicle.find({
+    user: req.user.id
+  }).sort({ createdAt: -1 });
+
+  res.json(vehicles);
+});
 
 router.post("/", async (req, res) => {
-  const vehicle = await Vehicle.create(req.body);
+  const vehicle = await Vehicle.create({
+    ...req.body,
+    user: req.user.id
+  });
+
   res.status(201).json(vehicle);
 });
 

@@ -13,16 +13,10 @@ const vehicleSchema = new mongoose.Schema(
       default: "Available"
     },
 
-    currentLocation: { 
-      type: String, 
-      default: "Factory" 
-    },
-
-    user: {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: "User"
+    currentLocation: {
+      type: String,
+      default: "Factory"
     }
-
   },
   { timestamps: true }
 );

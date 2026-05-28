@@ -1,6 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import { Toaster } from "react-hot-toast";
 import "./index.css";
 
 import Login from "./pages/Login";
@@ -18,6 +19,7 @@ const Protected = ({ children }) => {
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <BrowserRouter>
+    <Toaster position="top-right" />
     <Routes>
       <Route path="/login" element={<Login />} />
       <Route path="/register" element={<Register />} />

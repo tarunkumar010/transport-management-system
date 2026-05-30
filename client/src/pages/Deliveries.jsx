@@ -73,7 +73,7 @@ export default function Deliveries() {
     Download Delivery Report
   </button>
 )}
-{role !== "Driver" && (
+{role === "Admin" && (
       <form onSubmit={add} className="bg-white p-5 rounded-2xl shadow grid grid-cols-3 gap-3 mb-6">
         <input className="border p-2 rounded" placeholder="Delivery ID" value={form.deliveryId} onChange={e=>setForm({...form,deliveryId:e.target.value})}/>
         <input className="border p-2 rounded" placeholder="Product" value={form.productName} onChange={e=>setForm({...form,productName:e.target.value})}/>
@@ -100,6 +100,8 @@ export default function Deliveries() {
                 <h3 className="font-bold text-lg">{d.deliveryId} - {d.productName}</h3>
                 <p>{d.pickupLocation} → {d.dropLocation}</p>
                 <p>Vehicle: {d.vehicle?.vehicleNumber || "Not assigned"}</p>
+                <p>Vehicle Type: {d.vehicle?.vehicleType || "N/A"}</p>
+<p>Driver: {d.vehicle?.driverName || "N/A"}</p>
               </div>
              <div className="flex flex-col items-end gap-2">
   <span

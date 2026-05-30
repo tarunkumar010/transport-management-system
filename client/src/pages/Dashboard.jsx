@@ -149,25 +149,28 @@ if (role === "Driver") {
   );
 }
   return (
+  <div className="bg-gradient-to-r from-blue-700 via-slate-800 to-slate-900 rounded-3xl p-8 mb-8 text-white shadow-xl">
+  <div className="flex justify-between items-center">
     <div>
-      <h2 className="text-3xl font-bold mb-6">Manufacturing Transport Dashboard</h2>
-      <div className="grid grid-cols-4 gap-5">
-        {cards.map(([title, value]) => (
-          // <div className="bg-white p-6 rounded-2xl shadow" key={title}>
-          <div
-  className="bg-white rounded-2xl shadow-lg hover:scale-105 transition p-6"
-  key={title}
->
-            <p className="text-gray-500">{title}</p>
-            {/* <h3 className="text-3xl font-bold mt-2">{value}</h3> */}
-            <h3 className="text-4xl font-bold text-blue-600 mt-2">{value}</h3>
-          </div>
-        ))}
-      </div>
-      <div className="bg-white rounded-2xl shadow p-6 mt-6">
-        <h3 className="text-xl font-bold mb-3">Project Workflow</h3>
-        <p>Admin adds vehicles, creates orders, schedules deliveries, assigns vehicle, and tracks delivery status manually.</p>
-      </div>
+      <h1 className="text-5xl font-extrabold mb-2">
+         Transport Dashboard
+      </h1>
+
+      <p className="text-blue-100 text-lg">
+        Real-Time Fleet, Delivery & Logistics Monitoring
+      </p>
+</div>
+
+    <div className="text-right">
+      <p className="text-sm text-gray-300">
+        Welcome Back
+      </p>
+
+      <h3 className="text-2xl font-bold">
+        {localStorage.getItem("name")}
+      </h3>
     </div>
+  </div>
+</div>
   );
 }
